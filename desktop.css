@@ -1,0 +1,57 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    background-color: #4d4d4d;
+}
+
+#set_input_wrapper {
+    width: 100%;
+    background-color: #fff;
+}
+
+#set_input {
+    width: 80%;
+    padding: 5% 10%;
+
+}
+
+#set_input input {
+    width: 50%;
+}
+
+#set_fd_wrapper {
+    width: 100%;
+    background-color: #ff4939;
+}
+
+#set_fd {
+    width: 80%;
+    padding: 5% 10%;
+}
+
+#calculations_wrapper {
+    width: 100%;
+    background-color: #64ff25;
+    overflow: hidden;
+}
+
+
+.title {
+    width: auto;
+    margin-left: 1em;
+    display: inline-block;
+    font-size: 2em;
+}
+
+.lhs_input, .rhs_input, .arrow {
+    display: inline-block;
+}
+
+.table_wrapper {
+    width: 20%;
+    margin: 1em;
+    display: inline-block;
+}

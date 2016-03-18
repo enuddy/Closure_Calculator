@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Closure Calculator</title>
+		<link rel="stylesheet" href="desktop.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css ">
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" ></script>
+		<script type="text/javascript" src="closure.js"></script>
+		<script type="text/javascript" src="domManip.js"></script>
+	</head>
+
+
+	<body>
+
+		<div id="set_input_wrapper">
+			<div id="set_input">
+				<div class="title"><span>Enter the set: </span></div>
+				<input class='init_set_text' type="text" name="set_input" placeholder="space delimited!">
+			</div>
+		</div>
+
+		<div id="set_fd_wrapper">
+			<div id="set_fd">
+				<div class="title"><span>Enter your foreign dependices here</span></div>
+				<div id="dependents"></div>
+				<div id="add_dep_button">
+					<button type="button" onclick="addDep()">Add Depency</button>
+					<button type="button" onclick="run()">Calculate Results</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="calculations_wrapper"></div>
+
+		<script>
+				/*var set1 = ['A', 'B', 'C'];
+				var newset = combine(set1, 2);
+				console.log(newset);
+				addTable(set1);*/
+
+			addDep();
+			addDep();
+			$(".dep_l_input").attr('text', 'a b');
+			$(".dep_r_input").attr('text', 'c');
+
+
+
+		</script>
+	</body>
+
+</html>
