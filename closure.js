@@ -2,6 +2,14 @@
  * Created by Evan_Nudd on 3/14/16.
  */
 
+var FuncDep = function(lhs, rhs){
+    this.lhs = lhs;
+    this.rhs = rhs;
+};
+FuncDep.prototype.toString = function() {   // Called by the toString() in the join() method used in domManip
+    return " " + this.lhs + " -> " + this.rhs;
+}
+
 function run() {
     // collect the init array that was input.
     var init_val = $('.init_set_text').val();
@@ -48,7 +56,7 @@ var setInArray = function (subset, parentset) {
 
 /* TODO rename this
 * This will get all the results for any given subset possible*/
-var getDependant = function(subset) {
+var getDependant = function(subset, fds_applied) {
     var dependants = subset.slice(0);
     var collection = $(".dep_l_input");
 
@@ -65,7 +73,10 @@ var getDependant = function(subset) {
             if (setInArray(arr, dependants)) {
                 // if it exists, add the rhs rule
                 var rhs_arr = $('.dep_r_input').eq(index).val().split(' ');
-                mergeSet(rhs_arr, dependants);
+
+                if (mergeSet(rhs_arr, dependants)) {
+                    fds_applied.push(new FuncDep(arr, rhs_arr))
+                }
             }
         });
     } while (size != dependants.length);
@@ -76,7 +87,12 @@ var getDependant = function(subset) {
 /* Merges the child_set into the parent_set ( not allowing duplicates ) */
 var mergeSet = function (child_set, parent_set) {
     for (var i = 0; i < child_set.length; i++) {
-        if ($.inArray(child_set[i], parent_set) == -1)
+        if ($.inArray(child_set[i], parent_set) == -1) {
             parent_set.push(child_set[i]);
+        }
+        else
+            return false;
     }
+
+    return true;
 }

@@ -16,12 +16,16 @@ function addTable(data) {
                 className:      'details-control',
                 title:          "left"
             },
-            {  title: "right" }
+            {  title: "right" },
+            {  title: "FD's applied."}
         ]
     });
 
     for (var dat in data) {
-        table.row.add([data[dat], getDependant(data[dat])]).draw(false);
+        var fds_app = [];
+        var rhs = getDependant(data[dat], fds_app);
+        var fds = fds_app.join();
+        table.row.add([data[dat], rhs, fds]).draw(false);
     }
 
     $table_wrapper.append($table_container);

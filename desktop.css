@@ -54,4 +54,5 @@ html, body {
     width: 20%;
     margin: 1em;
     display: inline-block;
+    vertical-align: top;
 }
