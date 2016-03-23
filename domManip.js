@@ -40,14 +40,13 @@ function addTable(data) {
 function assignKeys(table, init_set) {
     var indexes = table.rows().eq( 0).filter( function(rowIdx) {
         var isE = setEqual(table.cell(rowIdx, 1).data(), init_set);
-        console.log(isE);
         return isE;
     });
 
     table.rows(indexes)
         .nodes()
         .to$()
-        .addClass('highlight');
+        .addClass('key');
 }
 
 function addDep() {

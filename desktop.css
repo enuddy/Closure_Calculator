@@ -80,3 +80,7 @@ html, body {
     display: inline-block;
     vertical-align: top;
 }
+
+.key {
+    background-color: #26A69A !important;
+}
