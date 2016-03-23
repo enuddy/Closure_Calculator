@@ -10,7 +10,12 @@ FuncDep.prototype.toString = function() {   // Called by the toString() in the j
     return " " + this.lhs + " -> " + this.rhs;
 }
 
+/*
+    Main logic loop if you want to calculate dependicies.
+ */
 function run() {
+    // TODO clear any lists already being displayed here
+
     // collect the init array that was input.
     var init_val = $('.init_set_text').val();
     var init_set = init_val.split(' ');
@@ -18,8 +23,7 @@ function run() {
     // make all tables
     for (var i = 1; i<= init_set.length; i++) {
         var combo = makeCombinations(init_set, i);
-        console.log(combo);
-        addTable(combo);
+        assignKeys(addTable(combo), init_set);
     }
 }
 
@@ -52,6 +56,14 @@ var setInArray = function (subset, parentset) {
     }
 
     return true;
+}
+
+var setEqual = function (set1, set2) {
+    if (set1.length === set2.length) {
+        return setInArray(set1, set2);
+    }
+
+    return false;
 }
 
 /* TODO rename this

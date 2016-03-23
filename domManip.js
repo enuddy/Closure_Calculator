@@ -25,12 +25,29 @@ function addTable(data) {
         var fds_app = [];
         var rhs = getDependant(data[dat], fds_app);
         var fds = fds_app.join();
-        table.row.add([data[dat], rhs, fds]).draw(false);
+
+        table.row.add([data[dat], rhs, fds]);
     }
 
+    // draw the table then add the containers to the document.
+    table.draw(false);
     $table_wrapper.append($table_container);
-
     $loc.append($table_wrapper);
+
+    return table;
+}
+
+function assignKeys(table, init_set) {
+    var indexes = table.rows().eq( 0).filter( function(rowIdx) {
+        var isE = setEqual(table.cell(rowIdx, 1).data(), init_set);
+        console.log(isE);
+        return isE;
+    });
+
+    table.rows(indexes)
+        .nodes()
+        .to$()
+        .addClass('highlight');
 }
 
 function addDep() {

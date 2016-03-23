@@ -4,27 +4,26 @@ html, body {
     margin: 0;
     padding: 0;
 
-    background-color: #4d4d4d;
+    background-color: #607D8B;
 }
 
 #set_input_wrapper {
     width: 100%;
-    background-color: #fff;
 }
 
 #set_input {
     width: 80%;
     padding: 5% 10%;
-
 }
 
 #set_input input {
     width: 50%;
+    margin-left: 25%;
+    text-align: center;
 }
 
 #set_fd_wrapper {
     width: 100%;
-    background-color: #ff4939;
 }
 
 #set_fd {
@@ -34,17 +33,42 @@ html, body {
 
 #calculations_wrapper {
     width: 100%;
-    background-color: #64ff25;
     overflow: hidden;
 }
 
 
 .title {
-    width: auto;
-    margin-left: 1em;
+    width: 100%;
     display: inline-block;
+    text-align: center;
     font-size: 2em;
 }
+
+#dependents {
+    width: 100%;
+    display: block;
+}
+
+.dep_container {
+    width: 30%;
+    display: block;
+    margin: 1% auto ;
+    white-space: nowrap;
+}
+
+#add_dep_button {
+    width: 100%;
+    padding-top: 2%;
+    display: block;
+}
+
+#add_dep_button button{
+    width:25%;
+    display: inline-block;
+}
+#add_dep_button button:nth-child(1){
+     margin-left: 25%;
+ }
 
 .lhs_input, .rhs_input, .arrow {
     display: inline-block;
